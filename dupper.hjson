@@ -1,8 +1,4 @@
 {
-    copy:
-    [
-        "cmd/registry/config-dev.yml:/etc/docker/registry"
-    ],
     dependencies:
     [
         {
@@ -13,6 +9,8 @@
                 echo 'DOCKER_BUILDTAGS="include_oss include_gcs"' >> ~/.bash_profile
                 echo 'export DISTRIBUTION_DIR="/go/src/github.com/docker/distribution"' >> ~/.bash_profile
                 mkdir -p /etc/docker/registry
+                cp /root/distribution/cmd/registry/config-dev.yml /etc/docker/registry
+
             '''
         },
         {
