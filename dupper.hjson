@@ -1,7 +1,7 @@
 {
     copy:
     [
-        "cmd/registry/config-dev.yml:/etc/docker/registry/config.yml"
+        "cmd/registry/config-dev.yml:/etc/docker/registry"
     ],
     dependencies:
     [
@@ -60,7 +60,7 @@
         deploy: {
             server:
             '''
-                /go/bin/registry serve /etc/docker/registry/config.yml
+                /go/bin/registry serve /etc/docker/registry/config-dev.yml
             '''
         }
     }
