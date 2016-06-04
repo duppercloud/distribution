@@ -56,12 +56,15 @@
         build: {
             server:
             '''
+                echo "Building...."
                 make PREFIX=/go clean binaries
+                echo "Building.... Done"
             '''
         }
         deploy: {
             server:
             '''
+                ls
                 /go/bin/registry serve /etc/docker/registry/config.yml
             '''
         }
