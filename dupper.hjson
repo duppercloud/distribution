@@ -77,5 +77,13 @@
                 /go/bin/registry serve /etc/docker/registry/config.yml
             '''
         }
+        generate-certs: {
+            server:
+            '''
+                git clone https://github.com/certbot/certbot
+                cd certbot
+                ./certbot-auto certonly --standalone -d distribution.athakwani.dupper.com
+            '''
+        }
     }
 }
