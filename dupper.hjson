@@ -11,7 +11,7 @@
     env:
     [
         "GOPATH=/go",
-        "DOCKER_BUILDTAGS='include_oss include_gcs'",
+        "DOCKER_BUILDTAGS=include_oss include_gcs",
         "DISTRIBUTION_DIR=/go/src/github.com/docker/distribution"
     ],
     dependencies:
