@@ -29,6 +29,7 @@
             cmd:
             '''
                 apt-get install -y software-properties-common build-essential golang vim git
+                mkdir -p $DISTRIBUTION_DIR
             '''
         },
         {
