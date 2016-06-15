@@ -29,7 +29,6 @@
             cmd:
             '''
                 apt-get install -y software-properties-common build-essential golang vim git
-                env
                 mkdir -p $DISTRIBUTION_DIR
             '''
         },
@@ -39,7 +38,7 @@
             '''
                 go get github.com/dupperinc/gut
                 go install github.com/dupperinc/gut
-                gut build --build-parallel
+                $GOPATH/bin/gut build --build-parallel
             '''
         }
     ],
