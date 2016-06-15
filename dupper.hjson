@@ -11,8 +11,16 @@
     env:
     [
         "GOPATH=/go",
+        "PATH=$PATH:$GOPATH/bin",
         "DOCKER_BUILDTAGS=include_oss include_gcs",
-        "DISTRIBUTION_DIR=/go/src/github.com/docker/distribution"
+        "DISTRIBUTION_DIR=/go/src/github.com/docker/distribution",
+        "REGISTRY_HTTP_TLS_CERTIFICATE=/root/registry/keys/fullchain2.pem",
+        "REGISTRY_HTTP_TLS_KEY=/root/registry/keys/privkey2.pem"
+    ],
+    copy:
+    [
+        "cmd/registry/config-dev.yml:/etc/docker/registry/config.yml",
+        "*:$DISTRIBUTION_DIR"
     ],
     dependencies:
     [
@@ -24,18 +32,12 @@
             '''
         },
         {
-            name: "environment",
+            name: "gut",
             cmd:
             '''
-                set -ex
-                echo 'export GOPATH=/go' >> ~/.bashrc
-                echo 'export DOCKER_BUILDTAGS="include_oss include_gcs"' >> ~/.bashrc
-                echo 'export DISTRIBUTION_DIR=/go/src/github.com/docker/distribution' >> ~/.bashrc
-                mkdir -p /etc/docker/registry
-                cp /root/registry/cmd/registry/config-dev.yml /etc/docker/registry/config.yml
-                mkdir -p /go/src/github.com/docker/distribution
-                cp -R * /go/src/github.com/docker/distribution
-
+                go get github.com/dupperinc/gut
+                go install github.com/dupperinc/gut
+                gut build --build-parallel
             '''
         }
     ],
@@ -72,11 +74,7 @@
             server:
             '''
                 echo "Building...."
-                export GOPATH=/go
-                export DOCKER_BUILDTAGS="include_oss include_gcs"
-                export DISTRIBUTION_DIR=/go/src/github.com/docker/distribution
-                cd /go/src/github.com/docker/distribution
-                pwd
+                cd $DISTRIBUTION_DIR
                 make PREFIX=/go clean binaries
                 echo "Building.... Done"
             '''
@@ -85,9 +83,7 @@
             server:
             '''
                 echo "starting registry..."
-                export REGISTRY_HTTP_TLS_CERTIFICATE=/root/registry/keys/fullchain2.pem
-                export REGISTRY_HTTP_TLS_KEY=/root/registry/keys/privkey2.pem
-                /go/bin/registry serve /etc/docker/registry/config.yml
+                $GOPATH/bin/registry serve /etc/docker/registry/config.yml
             '''
         }
     }
