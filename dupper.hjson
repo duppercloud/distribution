@@ -29,8 +29,10 @@
             cmd:
             '''
                 sudo apt-get install -y software-properties-common build-essential golang vim git
-                mkdir -p /etc/docker/registry
-                mkdir -p $DISTRIBUTION_DIR
+                sudo mkdir -p /etc/docker/registry
+                sudo mkdir -p $DISTRIBUTION_DIR
+                sudo chmod a+w /etc/docker/registry
+                sudo chmod a+w $DISTRIBUTION_DIR
             '''
         },
         {
