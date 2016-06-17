@@ -42,9 +42,9 @@
             cmd:
             '''
                 sudo apt-get install -y curl vim zlib1g-dev gettext inotify-tools build-essential autoconf
-                sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
-                sudo tar -xvf go1.6.linux-amd64.tar.gz
-                sudo mv go /usr/local
+                curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+                tar -xvf go1.6.linux-amd64.tar.gz
+                mv go /usr/local
                 pwd
                 ls -la
                 sudo chmod -R a+rw $GOPATH
