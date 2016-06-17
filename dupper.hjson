@@ -45,7 +45,8 @@
                 curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
                 tar -xvf go1.6.linux-amd64.tar.gz
                 pwd
-                ls -la
+                sudo pwd
+                sudo cp $GOROOT/go/bin/go /usr/local/bin/
                 env
                 sudo chmod -R a+rw $GOPATH
                 go get github.com/dupperinc/gut
