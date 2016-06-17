@@ -46,6 +46,7 @@
                 sudo tar -xvf go1.6.linux-amd64.tar.gz
                 sudo mv go /usr/local
                 pwd
+                ls -la
                 sudo chmod -R a+rw $GOPATH
                 go get github.com/dupperinc/gut
                 go install github.com/dupperinc/gut
