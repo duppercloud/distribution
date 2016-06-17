@@ -33,7 +33,7 @@
                 sudo mkdir -p $DISTRIBUTION_DIR
                 sudo chmod a+w /etc/docker/registry
                 sudo chmod a+w $DISTRIBUTION_DIR
-                sudo chmod a+w $GOPATH
+                sudo chmod -R a+rw $GOPATH
             '''
         },
         {
