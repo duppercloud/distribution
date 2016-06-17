@@ -1,7 +1,7 @@
 {
     ports:
     [
-        "443:5000", // for registry
+        "$(bash)443:5000", // for registry
         "9418:9418" // for gut
     ],
     volumes:
