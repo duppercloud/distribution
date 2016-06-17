@@ -28,7 +28,7 @@
             name: "apt-packages",
             cmd:
             '''
-                sudo apt-get install -y software-properties-common build-essential golang vim git
+                sudo apt-get install -y software-properties-common build-essential golang vim zlib1g-dev gettext inotify-tools build-essential autoconf
                 sudo mkdir -p /etc/docker/registry
                 sudo mkdir -p $DISTRIBUTION_DIR
                 sudo chmod a+w /etc/docker/registry
