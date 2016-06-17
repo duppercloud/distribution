@@ -10,7 +10,6 @@
     ],
     env:
     [
-        "PATH=$PATH:/usr/local/go/bin",
         "GOROOT=$HOME/go",
         "PATH=$PATH:$GOROOT/bin",
         "GOPATH=/go",
@@ -46,7 +45,7 @@
                 tar -xvf go1.6.linux-amd64.tar.gz
                 pwd
                 sudo pwd
-                sudo cp $GOROOT/go/bin/go /usr/local/bin/
+                sudo cp $GOROOT/bin/go /usr/local/bin/
                 env
                 sudo chmod -R a+rw $GOPATH
                 go get github.com/dupperinc/gut
