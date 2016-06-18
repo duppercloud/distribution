@@ -14,7 +14,7 @@
         "PATH=$PATH:$GOROOT/bin",
         "GOPATH=/go",
         "PATH=$PATH:$GOPATH/bin",
-        "DOCKER_BUILDTAGS='include_oss include_gcs'",
+        "DOCKER_BUILDTAGS=include_oss include_gcs",
         "DISTRIBUTION_DIR=/go/src/github.com/docker/distribution",
         "REGISTRY_HTTP_TLS_CERTIFICATE=/root/registry/keys/fullchain2.pem",
         "REGISTRY_HTTP_TLS_KEY=/root/registry/keys/privkey2.pem"
