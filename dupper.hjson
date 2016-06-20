@@ -59,7 +59,9 @@
             server:
             '''
                 echo "Executing server script..."
-                cp /root/dupperd/.gitignore /root/dupperd/.gutignore
+                env
+                echo $path
+                cp dupperd/.gitignore dupperd/.gutignore
                 ulimit -n 9999
                 ulimit
             '''
@@ -87,6 +89,7 @@
             server:
             '''
                 echo "Building...."
+                env
                 cd $DISTRIBUTION_DIR
                 make PREFIX=/go clean binaries
                 echo "Building.... Done"
