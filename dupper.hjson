@@ -44,11 +44,10 @@
                 sudo apt-get install -y curl vim zlib1g-dev gettext inotify-tools build-essential autoconf
                 curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
                 tar -xvf go1.6.linux-amd64.tar.gz
-                sudo cp $GOROOT/bin/go /usr/local/bin/
                 sudo chmod -R a+rw $GOPATH
                 go get github.com/dupperinc/gut
                 go install github.com/dupperinc/gut
-                $GOPATH/bin/gut build --build-parallel
+                gut build --build-parallel
             '''
         }
     ],
