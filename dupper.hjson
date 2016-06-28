@@ -12,7 +12,7 @@
     [
         "GOROOT=$HOME/go",
         "PATH=$PATH:$GOROOT/bin",
-        "GOPATH=/go",
+        "GOPATH=$HOME/projects/",
         "PATH=$PATH:$GOPATH/bin",
         "DOCKER_BUILDTAGS=include_oss include_gcs",
         "DISTRIBUTION_DIR=/go/src/github.com/docker/distribution",
@@ -42,15 +42,13 @@
             cmd:
             '''
                 sudo apt-get install -y curl vim zlib1g-dev gettext inotify-tools build-essential autoconf
-                sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
-                sudo tar -xvf go1.6.linux-amd64.tar.gz
+                curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+                tar -xvf go1.6.linux-amd64.tar.gz
                 pwd
                 env
-                sudo cp ./go/bin/go /usr/local/bin/
-                sudo chmod -R a+rw $GOPATH
-                sudo /usr/local/bin/go get github.com/dupperinc/gut
-                sudo /usr/local/bin/go install github.com/dupperinc/gut
-                sudo $GOPATH/bin/gut build --build-parallel
+                go get github.com/dupperinc/gut
+                go install github.com/dupperinc/gut
+                gut build --build-parallel
             '''
         }
     ],
