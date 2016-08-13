@@ -19,11 +19,6 @@
         "REGISTRY_HTTP_TLS_CERTIFICATE=$HOME/registry/keys/fullchain2.pem",
         "REGISTRY_HTTP_TLS_KEY=$HOME/registry/keys/privkey2.pem"
     ],
-    copy:
-    [
-        "cmd/registry/config-dev.yml:/etc/docker/registry/config.yml",
-        "*:$DISTRIBUTION_DIR"
-    ],
     dependencies:
     [
         {
@@ -47,8 +42,8 @@
                 tar -xvf go1.6.linux-amd64.tar.gz
                 pwd
                 env
-                go get github.com/dupperinc/gut
-                go install github.com/dupperinc/gut
+                go get github.com/duppercloud/gut
+                go install github.com/duppercloud/gut
                 gut build --build-parallel
             '''
         }
